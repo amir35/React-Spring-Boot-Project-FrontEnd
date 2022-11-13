@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Col, Input, Button } from 'reactstrap';
-import axios from "axios";
+import CRUDControllers from './../controllers/CRUDControllers';
 
 
 function AddCourse() {
 
     //const [record, setRecord] = useState([]);
 
-    const [toggleHeading, setToggleHeading] = useState(true);
+    const crudControllers = new CRUDControllers();
+
+    //const [toggleHeading, setToggleHeading] = useState(true);
 
     const [course, setCourse] = useState({
         courseName : "",
@@ -37,7 +39,7 @@ function AddCourse() {
 
     //adding new course to server
     const addCourseToServer = (course) => {
-        axios.post(`http://localhost:9191/course`, course).then(
+        crudControllers.saveCourse(course).then(
             (response) => {
                 console.log(response);
                 console.log("Success");
@@ -53,9 +55,6 @@ function AddCourse() {
     return (
 
         <div>
-            {
-                toggleHeading ? <h1>Add Course </h1> : <h1>Edit Course</h1>
-            }
 
             {/*
             <Form>

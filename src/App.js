@@ -11,6 +11,7 @@ import  About from './components/About';
 import AddCourse from './components/AddCourse';
 import ViewCourses from './components/ViewCourses';
 import EditCourse from './components/EditCourse';
+import ImportCourses from './components/ImportCourses';
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
               <Route path="/view-courses" element={<ViewCourses />} exact />
               <Route path="/about" element={About} exact />
               <Route path="/contact" element={<Contact />} exact />
-              <Route path="/edit-course/:courseId" element={<EditCourse />} />
+              <Route path="/edit-course/:courseId/:mode" element={<EditCourse />} />
+              <Route path="/import-courses" element={<ImportCourses />} exact />
               </Routes>
               
               
